@@ -89,8 +89,8 @@ for iter = 1:length(files)
         if i ~= num_runs(end)
            semilogx(data(:,3),data(:,1),strcat('-',style(mod(i,8)+1)),'LineWidth',0.3);
         else
-           legend_cell{i,1} = 'CHOSEN SOLN.';
-           semilogx(data(:,3),data(:,1),strcat('-','k.'),'MarkerSize',14,'LineWidth',0.3);
+           %legend_cell{i,1} = 'CHOSEN SOLN.';
+           %semilogx(data(:,3),data(:,1),strcat('-','k.'),'MarkerSize',14,'LineWidth',0.3);
         end
         hold on
         
@@ -113,10 +113,11 @@ for iter = 1:length(files)
         sort_cell{i} = str2double(sort_cell{i});
     end
     [~,ind] = sort(cell2mat(sort_cell));
-    for i = 1:last_coarse_alpha
-        delete(files2(ind(i)).name);
-    end
+%     for i = 1:last_coarse_alpha
+%         delete(files2(ind(i)).name);
+%     end
     %%%%%%
+    
     savefig(strcat(name(1:end-4),'_all_alpha'))
     close all
 end
