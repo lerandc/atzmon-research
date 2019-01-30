@@ -1,14 +1,15 @@
 %main_auto
 %runs all automated scripts in order so that data is processed completely
 
-tau_min = 1e-3;
-tau_max = 1e3;
+tau_min = 1.5e-3;
+k = [1];
+tau_max = 200;
 N_tau = 100;
 iquad = '2.';%2= trapezoid, 3 = simpsons
 N_alpha = '6.'; %for the fine
 
 for i = 1:1
-    f_contin_input(tau_min,tau_max,N_tau,iquad,N_alpha)
+    f_contin_input(tau_min,tau_max,N_tau,iquad,N_alpha,k(i))
 end
 tic
 study = 1; %1 = static case, 2 = dynamic case

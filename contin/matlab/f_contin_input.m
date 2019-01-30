@@ -1,4 +1,4 @@
-function f_contin_input(t1,t2,NG,iquad,N_alpha)
+function f_contin_input(t1,t2,NG,iquad,N_alpha,k)
 %Script for generating contin input files from CSVs
 files = dir('*.csv');
 
@@ -8,8 +8,8 @@ for j = 1:length(files)
         %grabs csv input with time in first column and strain in second column
         M = csvread(name);
 
-        x = M(:,1);
-        y = M(:,2);
+        x = M(1:k:end,2);
+        y = M(1:k:end,1);
         [x, order] = sort(x);
         y = y(order);
         %creates the file
